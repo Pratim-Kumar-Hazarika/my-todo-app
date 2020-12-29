@@ -1,22 +1,35 @@
 import logo from './logo.svg';
 import './App.css';
+import {useState} from 'react';
+import List from "./List.js"
+import './List.css'
 
 function App() {
+  const [currentItem, setcurrentItem] = useState(null);
+  const [list , setList] =useState([]);
+
+  const onChangeHandler=(e)=>{
+    setcurrentItem(e.target.value);
+    console.log(setcurrentItem)
+  };
+
+  const clickHandler=()=>{
+    setList([...list,{item: currentItem, key: Date.now()}]);
+    setcurrentItem(" ");
+    console.log(list);
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+       <h1>My Todo-App</h1>
+       <div className="outer-div">
+         <div className="inner-div">
+           <input value={currentItem} onChange={onChangeHandler}></input>
+           <button onClick={clickHandler}>+</button>
+         </div>
+         <List list={list} setList={setList}/>
+       </div>
       </header>
     </div>
   );

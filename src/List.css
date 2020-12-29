@@ -1,0 +1,19 @@
+
+
+.returned-items{
+    border: 1px solid rgb(218, 210, 210);
+    display: flex;
+    margin: 0;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    height: 2vh;
+    
+    
+    
+}
+p{
+    margin: 0;
+    padding: 1px;
+    margin-top: 2px;
+}
